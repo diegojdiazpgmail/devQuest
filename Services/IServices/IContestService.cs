@@ -1,6 +1,7 @@
 ﻿using Entities;
 using Models;
 using Models.Request;
+using Models.Response;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,6 @@ namespace Services.IServices
         Task<List<ContestEntity>> GetContestByStatus(GetByStatusRequest request);
         Task<List<UserEntity>> GetContestUsers(GetByIdRequest request);
         Task<List<ContestEntity>> GetContestHistory();
-        Task<TransactionModel> SaveUserContest(SaveUserContestRequest request);
+        Task<SaveUserContestResponse> SaveUserContest(SaveUserContestRequest request);
     }
 }

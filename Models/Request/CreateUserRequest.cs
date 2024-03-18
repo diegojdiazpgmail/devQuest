@@ -11,7 +11,7 @@ namespace Models.Request
         public string userName { get; set; }
         public string userEmail { get; set; }
         public string userPassword { get; set; }
-        public int discordId { get; set; }
+        public string discordId { get; set; }
         public string discordName { get; set; }
         public string userRole { get; set; }
         public string discordMemberSince { get; set; }

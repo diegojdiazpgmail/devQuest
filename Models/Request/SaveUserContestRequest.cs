@@ -8,8 +8,9 @@ namespace Models.Request
 {
     public class SaveUserContestRequest
     {
-        public string userGuid { get; set; }
-        public string contestGuid { get; set; }
+        public string discordId { get; set; }
+        public string discordName { get; set; }
+
 
     }
 }

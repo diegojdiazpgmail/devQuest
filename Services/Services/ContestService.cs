@@ -1,6 +1,7 @@
 ﻿using Entities;
 using Models;
 using Models.Request;
+using Models.Response;
 using Repository.IRepository;
 using Services.IServices;
 using System;
@@ -48,7 +49,7 @@ namespace Services.Services
             return await _contestRepository.GetContestHistory();
 
         }
-        public async Task<TransactionModel> SaveUserContest(SaveUserContestRequest request)
+        public async Task<SaveUserContestResponse> SaveUserContest(SaveUserContestRequest request)
         {
             return await _contestRepository.SaveUserContest(request);
 

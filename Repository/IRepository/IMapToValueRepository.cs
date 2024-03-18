@@ -1,5 +1,6 @@
 ﻿using Entities;
 using Models;
+using Models.Response;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -14,5 +15,6 @@ namespace Repository.IRepository
         UserEntity MapUser(SqlDataReader dr);
         ContestEntity MapContest(SqlDataReader dr);
         TransactionModel MapResponseTransaction(SqlDataReader dr);
+        SaveUserContestResponse MapSaveUserContest(SqlDataReader dr);
     }
 }

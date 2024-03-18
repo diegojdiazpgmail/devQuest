@@ -1,5 +1,7 @@
 ﻿using Entities;
 using Models;
+using Models.Request;
+using Models.Response;
 using Repository.IRepository;
 using System;
 using System.Collections.Generic;
@@ -20,10 +22,11 @@ namespace Repository.Repository
             user.userGuid= dr["USER_GUID"] != DBNull.Value ? dr["USER_GUID"].ToString() : string.Empty;
             user.email=dr["USER_EMAIL"] != DBNull.Value ? dr["USER_EMAIL"].ToString() : string.Empty;
             user.role=dr["USER_ROLE"] != DBNull.Value ? dr["USER_ROLE"].ToString() : string.Empty;
-            user.discordId=dr["DISCORD_ID"] != DBNull.Value ? Convert.ToInt32(dr["DISCORD_ID"].ToString()) : 0;
+            user.discordId=dr["DISCORD_ID"] != DBNull.Value ? (dr["DISCORD_ID"].ToString()) : string.Empty;
             user.discordName=dr["DISCORD_NAME"] != DBNull.Value ? dr["DISCORD_NAME"].ToString() : string.Empty;
             user.discordMemberSince=dr["DISCORD_MEMBER_SINCE"] != DBNull.Value ? Convert.ToDateTime(dr["DISCORD_MEMBER_SINCE"].ToString()) : DateTime.MinValue;
             user.createdAt=dr["CREATE_DATE"] != DBNull.Value ? Convert.ToDateTime(dr["CREATE_DATE"].ToString()) : DateTime.MinValue;
+            user.isValid=dr["IS_VALID"] != DBNull.Value ? Convert.ToBoolean(dr["IS_VALID"].ToString()) : false;
 
             return user;
         }
@@ -45,6 +48,27 @@ namespace Repository.Repository
             TransactionModel transaction = new TransactionModel();
             transaction.Resultado= dr["RESULTADO"] != DBNull.Value ? Convert.ToBoolean(dr["RESULTADO"].ToString()) : false;
             transaction.MensajeResultado= dr["MENSAJE_RESULTADO"] != DBNull.Value ? (dr["MENSAJE_RESULTADO"].ToString()) : string.Empty;
+
+            return transaction;
+        }
+
+        public SaveUserContestResponse MapSaveUserContest(SqlDataReader dr)
+        {
+            SaveUserContestResponse transaction = new SaveUserContestResponse();
+            transaction.user=new UserEntity();
+            transaction.transaction=new TransactionModel();
+
+            transaction.user.userGuid= dr["USER_GUID"] != DBNull.Value ? (dr["USER_GUID"].ToString()) : string.Empty;
+            transaction.user.isValid= dr["IS_VALID"] != DBNull.Value ? Convert.ToBoolean(dr["IS_VALID"].ToString()) : false;
+            transaction.user.email= dr["USER_EMAIL"] != DBNull.Value ? (dr["USER_EMAIL"].ToString()) : string.Empty;
+            transaction.user.role= dr["USER_ROLE"] != DBNull.Value ? (dr["USER_ROLE"].ToString()) : string.Empty;
+            transaction.user.discordId= dr["DISCORD_ID"] != DBNull.Value ? (dr["DISCORD_ID"].ToString()) : string.Empty;
+            transaction.user.discordName= dr["DISCORD_NAME"] != DBNull.Value ? (dr["DISCORD_NAME"].ToString()) : string.Empty;
+            transaction.user.discordMemberSince= dr["DISCORD_MEMBER_SINCE"] != DBNull.Value ? Convert.ToDateTime(dr["DISCORD_MEMBER_SINCE"].ToString()) : DateTime.MinValue;
+            transaction.user.userName= dr["USER_NAME"] != DBNull.Value ? (dr["USER_NAME"].ToString()) : string.Empty;
+            transaction.contestGuid= dr["CONTEST_GUID"] != DBNull.Value ? (dr["CONTEST_GUID"].ToString()) : string.Empty;
+            transaction.transaction.Resultado= dr["RESULTADO"] != DBNull.Value ? Convert.ToBoolean(dr["RESULTADO"].ToString()) : false;
+            transaction.transaction.MensajeResultado= dr["MENSAJE_RESULTADO"] != DBNull.Value ? (dr["MENSAJE_RESULTADO"].ToString()) : string.Empty;
 
             return transaction;
         }

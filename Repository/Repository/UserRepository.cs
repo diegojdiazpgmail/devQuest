@@ -64,6 +64,7 @@ namespace Repository.Repository
                     cmd.Parameters.AddWithValue("@PTR_DISCORD_ID", request.discordId);
                     cmd.Parameters.AddWithValue("@PTR_DISCORD_NAME", request.discordName);
                     cmd.Parameters.AddWithValue("@PTR_USER_ROLE", request.userRole);
+                    cmd.Parameters.AddWithValue("@PTR_DISCORD_MEMBER_SINCE", Convert.ToDateTime(request.discordMemberSince));
 
 
                     UserEntity usu = new UserEntity();

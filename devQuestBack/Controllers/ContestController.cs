@@ -95,13 +95,13 @@ namespace devQuestBack.Controllers
         [HttpPost]
         [Route("SaveUserContest")]
         [ProducesResponseType(typeof(BaseResponseModel<TransactionModel>), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<BaseResponseModel<TransactionModel>>> SaveUserContest([FromBody] SaveUserContestRequest request)
+        public async Task<ActionResult<BaseResponseModel<TransactionModel>>> saveUserContest([FromBody] SaveUserContestRequest request)
         {
-            BaseResponseModel<TransactionModel> response = new BaseResponseModel<TransactionModel>();
+            BaseResponseModel<SaveUserContestResponse> response = new BaseResponseModel<SaveUserContestResponse>();
             try
             {
 
-                TransactionModel contest = await _contestServices.SaveUserContest(request);
+                SaveUserContestResponse contest = await _contestServices.SaveUserContest(request);
                 response.Objeto = contest;
                 response.Codigo=(int)HttpStatusCode.OK;
                 response.IsExito = true;

@@ -48,7 +48,7 @@ namespace devQuestBack.Controllers
         [HttpPost]
         [Route("createUser")]
         [ProducesResponseType(typeof(BaseResponseModel<UserEntity>), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<BaseResponseModel<UserEntity>>> createUser(CreateUserRequest request)
+        public async Task<ActionResult<BaseResponseModel<UserEntity>>> createUser([FromBody] CreateUserRequest request)
         {
             BaseResponseModel<UserEntity> response = new BaseResponseModel<UserEntity>();
             try

@@ -16,6 +16,8 @@ namespace Entities
         public DateTime endsAt { get; set; }
         public bool contestStatus { get; set; }
         public string mensaje { get; set; }
+        public int maxNumber { get; set; }
+        public int contestNumber { get; set; }
 
         public ContestEntity()
         {
@@ -26,6 +28,8 @@ namespace Entities
             contestStatus = false;
             contestGuid = string.Empty;
             contestDescription = string.Empty;
+            maxNumber=0;
+            contestNumber=0;
         }
     }
 }

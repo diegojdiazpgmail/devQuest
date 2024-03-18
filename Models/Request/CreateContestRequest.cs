@@ -14,5 +14,7 @@ namespace Models.Request
         public DateTime contestEndsAt { get; set; }
         public string contestOwnerEmail { get; set; }
         public bool contestStatus { get; set; }
+        public int maxNumber { get; set; }
+        public int contestantNumber { get; set; }
     }
 }

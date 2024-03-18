@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34018.315
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "devQuestBack", "devQuestBack.csproj", "{D91DDEEC-53EF-410D-9240-B5173BD1B7A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "devQuestApi", "devQuestApi.csproj", "{D91DDEEC-53EF-410D-9240-B5173BD1B7A6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "..\Services\Services.csproj", "{E133981E-AC61-4E08-8B6F-94C4EB0E0C37}"
 EndProject
@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "..\Models\Models.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "..\Entities\Entities.csproj", "{BF8F8476-897E-4C42-924F-3D5A2A6BD377}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utils", "..\Utils\Utils.csproj", "{F9198F89-4F18-4861-81CD-E09AE920935B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utils", "..\Utils\Utils.csproj", "{F9198F89-4F18-4861-81CD-E09AE920935B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

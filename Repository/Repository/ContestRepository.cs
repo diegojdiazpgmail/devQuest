@@ -1,6 +1,7 @@
 ﻿using Entities;
 using Models;
 using Models.Request;
+using Models.Response;
 using Repository.IRepository;
 using System;
 using System.Collections.Generic;
@@ -105,6 +106,8 @@ namespace Repository.Repository
                     cmd.Parameters.AddWithValue("@PTR_CONTEST_START", request.contestStartsAt);
                     cmd.Parameters.AddWithValue("@PTR_CONTEST_ENDS", request.contestEndsAt);
                     cmd.Parameters.AddWithValue("@PTR_CONTEST_STATUS", request.contestStatus);
+                    cmd.Parameters.AddWithValue("@PTR_CONTEST_MAX_NUMBER", request.maxNumber);
+                    cmd.Parameters.AddWithValue("@PTR_CONTESTANT_NUMBER", request.contestantNumber);
 
                     using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
                     {
@@ -142,23 +145,24 @@ namespace Repository.Repository
                 }
             }
         }
-        public async Task<TransactionModel> SaveUserContest(SaveUserContestRequest request)
+        public async Task<SaveUserContestResponse> SaveUserContest(SaveUserContestRequest request)
         {
-            TransactionModel respuesta = new TransactionModel();
+            SaveUserContestResponse respuesta = new SaveUserContestResponse();
             using (SqlConnection sql = new SqlConnection(_configDB.GetDB()))
             {
                 using (SqlCommand cmd = new SqlCommand("dbo.pa_SaveContestUser", sql))
                 {
                     await sql.OpenAsync();
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@PTR_USER_GUID", request.userGuid);
-                    cmd.Parameters.AddWithValue("@PTR_CONSTEST_GUID", request.contestGuid);
+                    cmd.Parameters.AddWithValue("@PTR_DISCORD_ID", request.discordId);
+                    cmd.Parameters.AddWithValue("@PTR_DISCORD_NAME", request.discordName);
+
                     using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
                     {
                         while (await reader.ReadAsync())
                         {
 
-                            respuesta=_mapToValue.MapResponseTransaction(reader);
+                            respuesta=_mapToValue.MapSaveUserContest(reader);
                         }
                     }
 
