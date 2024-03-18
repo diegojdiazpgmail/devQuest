@@ -16,5 +16,6 @@ namespace Repository.IRepository
         ContestEntity MapContest(SqlDataReader dr);
         TransactionModel MapResponseTransaction(SqlDataReader dr);
         SaveUserContestResponse MapSaveUserContest(SqlDataReader dr);
+        WinnerPickerResponse MapWinnerPicker(SqlDataReader dr);
     }
 }

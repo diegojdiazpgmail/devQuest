@@ -1,6 +1,7 @@
 ﻿using Entities;
 using Models;
 using Models.Request;
+using Models.Response;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +15,6 @@ namespace Services.IServices
         Task<BaseResponseModel<List<UserEntity>>> getUsers();
         Task<UserEntity> createUser(CreateUserRequest request);
         Task<TransactionModel> UpdateUser(CreateUserRequest request);
+        Task<WinnerPickerResponse> WinnerPicker();
     }
 }

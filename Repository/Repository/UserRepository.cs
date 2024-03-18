@@ -1,6 +1,7 @@
 ﻿using Entities;
 using Models;
 using Models.Request;
+using Models.Response;
 using Repository.IRepository;
 using System;
 using System.Collections.Generic;
@@ -104,6 +105,30 @@ namespace Repository.Repository
                         while (await reader.ReadAsync())
                         {
                             respuesta = _mapToValue.MapResponseTransaction(reader);
+                        }
+                    }
+                    return respuesta;
+                }
+            }
+        }
+
+        public async Task<WinnerPickerResponse> WinnerPicker()
+        {
+            WinnerPickerResponse respuesta = new WinnerPickerResponse();
+            using (SqlConnection sql = new SqlConnection(_configDB.GetDB()))
+            {
+                using (SqlCommand cmd = new SqlCommand("dbo.pa_pickWinner", sql))
+                {
+                    await sql.OpenAsync();
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    
+
+                    UserEntity usu = new UserEntity();
+                    using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            respuesta = _mapToValue.MapWinnerPicker(reader);
                         }
                     }
                     return respuesta;

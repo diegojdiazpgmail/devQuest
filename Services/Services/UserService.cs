@@ -1,6 +1,7 @@
 ﻿using Entities;
 using Models;
 using Models.Request;
+using Models.Response;
 using Repository.IRepository;
 using Services.IServices;
 using System;
@@ -25,10 +26,14 @@ namespace Services.Services
         public async Task<UserEntity> createUser(CreateUserRequest request)
         {
             return await _usuarioRepository.createUser(request);
-        }  
+        }
         public async Task<TransactionModel> UpdateUser(CreateUserRequest request)
         {
             return await _usuarioRepository.UpdateUser(request);
+        }
+        public async Task<WinnerPickerResponse> WinnerPicker()
+        {
+            return await _usuarioRepository.WinnerPicker();
         }
 
     }

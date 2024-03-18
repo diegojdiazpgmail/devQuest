@@ -67,7 +67,6 @@ namespace Repository.Repository
                 }
             }
         }
-
         public async Task<List<ContestEntity>> GetContestByStatus(GetByStatusRequest request)
         {
             List<ContestEntity> respuesta = new List<ContestEntity>();
@@ -91,7 +90,6 @@ namespace Repository.Repository
                 }
             }
         }
-
         public async Task<ContestEntity> CreateContest(CreateContestRequest request)
         {
             ContestEntity respuesta = new ContestEntity();
@@ -122,7 +120,6 @@ namespace Repository.Repository
                 }
             }
         }
-
         public async Task<List<UserEntity>> GetContestUsers(GetByIdRequest request)
         {
             List<UserEntity> respuesta = new List<UserEntity>();
@@ -169,9 +166,7 @@ namespace Repository.Repository
                     return respuesta;
                 }
             }
-        }
-
-
+        }            
         public async Task<List<ContestEntity>> GetContestHistory()
         {
             List<ContestEntity> respuesta = new List<ContestEntity>();

@@ -16,6 +16,17 @@ namespace Models.Request
         public string userRole { get; set; }
         public string discordMemberSince { get; set; }
 
+        public CreateUserRequest()
+        {
+            userName=string.Empty;
+            userEmail=string.Empty;
+            userPassword=string.Empty;
+            discordId=string.Empty;
+            discordName=string.Empty;
+            userRole=string.Empty;
+            discordMemberSince=DateTime.MinValue.ToString();
+        }
+
 
     }
 }

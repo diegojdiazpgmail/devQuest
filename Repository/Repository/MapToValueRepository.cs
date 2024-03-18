@@ -73,5 +73,14 @@ namespace Repository.Repository
 
             return transaction;
         }
+        public WinnerPickerResponse MapWinnerPicker(SqlDataReader dr)
+        {
+            WinnerPickerResponse transaction = new WinnerPickerResponse();
+
+            transaction.discordId= dr["DISCORD_ID"] != DBNull.Value ? (dr["DISCORD_ID"].ToString()) : string.Empty;
+            transaction.discordName= dr["DISCORD_NAME"] != DBNull.Value ? (dr["DISCORD_NAME"].ToString()) : string.Empty;
+
+            return transaction;
+        }
     }
 }
