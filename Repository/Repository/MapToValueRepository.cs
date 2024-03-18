@@ -33,6 +33,7 @@ namespace Repository.Repository
         public ContestEntity MapContest(SqlDataReader dr)
         {
             ContestEntity contest = new ContestEntity();
+            contest.contestId= dr["CONTEST_ID"] != DBNull.Value ? Convert.ToInt32(dr["CONTEST_ID"].ToString()) : 0;
             contest.contestGuid= dr["CONTEST_GUID"] != DBNull.Value ? (dr["CONTEST_GUID"].ToString()) : string.Empty;
             contest.contestName= dr["CONTEST_NAME"] != DBNull.Value ? dr["CONTEST_NAME"].ToString() : string.Empty;
             contest.contestDescription= dr["CONTEST_DESCRIPTION"] != DBNull.Value ? dr["CONTEST_DESCRIPTION"].ToString() : string.Empty;
